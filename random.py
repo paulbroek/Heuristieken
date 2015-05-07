@@ -436,15 +436,15 @@ def Score(CollegeIndeling):
             if vakopdag[d,v]:
                 AantalDagenPerVak[v] += 1
 
-    print AantalActiviteitenPerVak            
-    print AantalDagenPerVak  
+    ## print AantalActiviteitenPerVak            
+    ## print AantalDagenPerVak  
 
     # spreidingmalus
     spreidingmalus = 0
     for v in range(29):
         if AantalDagenPerVak[v] < AantalActiviteitenPerVak[v]:
             spreidingmalus += 10*(AantalActiviteitenPerVak[v]-AantalDagenPerVak[v])
-            print vakken[v],": ", 10*(AantalActiviteitenPerVak[v]-AantalDagenPerVak[v])
+            ## print vakken[v],": ", 10*(AantalActiviteitenPerVak[v]-AantalDagenPerVak[v])
     #print spreidingmalus
 
     # bonussectie: vak met 2 tot 4 activiteiten, voor 2: ma-do of di-vr, voor 3: ma-wo-vr, voor 4: ma,di,do,vr
@@ -474,6 +474,4 @@ def ScoreUitleg(CollegeIndeling):
     print "MALUS Student overlap: ",np.sum(overlap)
     print "MALUS Spreiding: ",spreidingmalus
     print "BONUS Spreiding: ",bonusspreiding
-    print "Eindscore: ",(start-np.sum(overlap)-spreidingmalus+bonusspreiding)
-
-print Score(CollegeIndeling)    
+    print "Eindscore: ",(start-np.sum(overlap)-spreidingmalus+bonusspreiding)  
